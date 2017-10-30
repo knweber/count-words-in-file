@@ -9,20 +9,24 @@ def cli():
 
 def unique_words(text):
     if len(text) == 0:
+        print 0
         return
 
-    all_words = list()
+    all_words = dict()
+    word_list = list()
+    unique = list()
 
     for line in text:
         line = line.split()
         for word in line:
-            all_words.append(word)
+            word_list.append(word.lower())
+            all_words[word] = int(word_list.count(word))
 
-            
+    for word in all_words:
+        if all_words[word] == 1:
+            unique.append(word)
 
-
-    curr_count = 0
-
+    print len(unique)
 
 if __name__ == '__main__':
     cli()
